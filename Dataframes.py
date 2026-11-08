@@ -24,9 +24,12 @@ historical_data = pd.read_csv ("C:/Users/Joshu/Documents/2500project/Historical_
     'weather_detail'
     ] )
 
+hist_dat_post_1986 = historical_data[historical_data['schedule_season'] >= 1986]
+
 
 
 def get_week(week, pick_type="against-the-spread"):
+    #pick type is against-the-spread or straight-up
     url = f'https://www.cbssports.com/nfl/picks/experts/{pick_type}/{week}/'
 
     response = requests.get(url)
@@ -85,6 +88,5 @@ def get_multiple_weeks(max_week, pick_type="against-the-spread"):
 
 
    
-print(historical_data)
-print(get_multiple_weeks(4))
+
 
