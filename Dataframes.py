@@ -49,7 +49,6 @@ fav_id = historical_data['team_favorite_id']
 historical_data['team_home'] = historical_data['team_home'].map(team_ids)
 historical_data['team_away'] = historical_data['team_away'].map(team_ids)
 
-historical_data.to_csv('test', index=False)
 
 
 
