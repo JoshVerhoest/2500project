@@ -22,9 +22,38 @@ historical_data = pd.read_csv ("C:/Users/Joshu/Documents/2500project/Historical_
     'weather_wind_mph',
     'weather_humidity',
     'weather_detail'
-    ] )
+])
 
-hist_dat_post_1986 = historical_data[historical_data['schedule_season'] >= 1986]
+team_ids = {
+    'Arizona Cardinals':'ARI', 'Phoenix Cardinals':'ARI', 'St. Louis Cardinals':'ARI',
+    'Atlanta Falcons':'ATL', 'Baltimore Ravens':'BAL', 'Buffalo Bills':'BUF',
+    'Carolina Panthers':'CAR', 'Chicago Bears':'CHI', 'Cincinnati Bengals':'CIN',
+    'Cleveland Browns':'CLE', 'Dallas Cowboys':'DAL', 'Denver Broncos':'DEN',
+    'Detroit Lions':'DET', 'Green Bay Packers':'GB', 'Houston Texans':'HOU',
+    'Indianapolis Colts':'IND', 'Baltimore Colts':'IND', 'Jacksonville Jaguars':'JAX',
+    'Kansas City Chiefs':'KC', 'Los Angeles Chargers':'LAC', 'San Diego Chargers':'LAC',
+    'Los Angeles Rams':'LAR', 'St. Louis Rams':'LAR', 'Las Vegas Raiders':'LVR',
+    'Oakland Raiders':'LVR', 'Los Angeles Raiders':'LVR', 'Miami Dolphins':'MIA',
+    'Minnesota Vikings':'MIN', 'New England Patriots':'NE', 'Boston Patriots':'NE',
+    'New Orleans Saints':'NO', 'New York Giants':'NYG', 'New York Jets':'NYJ',
+    'Philadelphia Eagles':'PHI', 'Pittsburgh Steelers':'PIT', 'Seattle Seahawks':'SEA',
+    'San Francisco 49ers':'SF', 'Tampa Bay Buccaneers':'TB', 'Tennessee Titans':'TEN',
+    'Tennessee Oilers':'TEN', 'Houston Oilers':'TEN', 'Washington Commanders':'WAS',
+    'Washington Football Team':'WAS', 'Washington Redskins':'WAS',
+}
+
+home_id = historical_data['team_home'].map(team_ids)
+away_id = historical_data['team_away'].map(team_ids)
+fav_id = historical_data['team_favorite_id']
+
+historical_data['team_home'] = historical_data['team_home'].map(team_ids)
+historical_data['team_away'] = historical_data['team_away'].map(team_ids)
+
+historical_data.to_csv('test', index=False)
+
+
+
+ 
 
 
 
