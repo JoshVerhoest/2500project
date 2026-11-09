@@ -111,10 +111,15 @@ def get_multiple_weeks(max_week, pick_type="against-the-spread"):
     frames = []
     for week in range(1, max_week + 1):
         frames.append(get_week(week, pick_type))
-        time.sleep(2)
+        #time.sleep(1)
     return pd.concat(frames, ignore_index=True)
 
+week_9 = get_multiple_weeks(9)
+print(week_9)
+win = (week_9['result'] == 'WIN').sum()
+loss = (week_9['result'] == 'LOSS').sum()
 
-   
+win_rate = win / (win + loss)
 
-
+print(win_rate)
+#48.88%
